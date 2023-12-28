@@ -20,6 +20,9 @@ const client = new Client({ intents: [
 // check for when a message on discord is sent
 client.on('messageCreate', async function(message){
     try {
+        // don't respond to yourself or other bots
+        if(message.author.bot) return;
+        
         console.log(message.content);
         message.reply(`You said:  ${message.content}`);
     } catch(err){
