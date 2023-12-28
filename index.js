@@ -23,20 +23,19 @@ client.on('messageCreate', async function(message){
         // don't respond to yourself or other bots
         if(message.author.bot) return;
 
-        const gptResponse = await openai.createCompletion({
+        const AllenResponse = await openai.createCompletion({
             model: "davinci", 
             prompt: `Allen is a friendly being.\n\
-Allen: Hello fellow Earthling, how are you?\n\
+Allen: Hello fellow Earthling, how are you?.\n\
 ${message.author.username}: ${message.content}\n\
 Allen:`,
             //tempurature refers to how random the ai will be
             tempurature: 0.9,
-
             max_tokens: 100,
             stop: ["Allen:", "BigDon(g)"],
        })
 
-        message.reply(`${gptResponse.data.choices[0].text}`);
+        message.reply(`${AllenResponse.data.choices[0].text}`);
         return;
     } catch(err){
         console.log(err)
