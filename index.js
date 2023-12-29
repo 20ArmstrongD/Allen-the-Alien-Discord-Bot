@@ -12,7 +12,7 @@ const client = new Client({ intents: [
 // prepare connection to openai api
 const { Configuration , OpenAIApi } = require('openai');
 const configuration = new Configuration({
-    organization: process.env.OPENAI_ORG,
+    organization: process.env.OPENAI_KEY,
     apiKey: process.env.OPENAI_KEY,
 });
 const openai = new OpenAIApi(configuration)
@@ -25,9 +25,9 @@ client.on('messageCreate', async function(message){
 
         const AllenResponse = await openai.createCompletion({
             model: "davinci", 
-            prompt: `Allen is a friendly being.\n\
-Allen: Hello fellow Earthling, how are you?.\n\
-${message.author.username}: ${message.content}\n\
+            prompt: `Allen is a nice guy.\n\
+Allen: Hello people of Earth, how do you do?\n\
+${message.author.username}: ${message.content}
 Allen:`,
             //tempurature refers to how random the ai will be
             tempurature: 0.9,
