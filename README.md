@@ -11,5 +11,6 @@ If you download it anything that has to do with the chat prompts and responses c
 Tried to make is as clear as possible for people looking at it as well as people tooling it to their needs or desires
 
 ------------------IMPORTANT----------------------
+
 Make sure to create a .env file that hold DISCORD_TOKEN, OPENAI_KEY, and ORG_KEY.
 You will need these in order to get the bot working properly 
