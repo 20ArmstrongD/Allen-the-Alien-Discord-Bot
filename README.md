@@ -12,5 +12,5 @@ Tried to make is as clear as possible for people looking at it as well as people
 
 ------------------IMPORTANT----------------------
 
-Make sure to create a .env file that hold DISCORD_TOKEN, OPENAI_KEY, and ORG_KEY.
+Make sure to create a .env file that holds the following varibales: DISCORD_TOKEN, OPENAI_KEY, and ORG_KEY.
 You will need these in order to get the bot working properly 
