@@ -26,22 +26,25 @@ client.on('messageCreate', async function(message){
 
         const params = {
             model: "gpt-3.5-turbo", 
-            prompt: `Allen is a nice guy.\n\
-Allen: Hello people of Earth, how do you do?\n\
-${message.author.username}: ${message.content}
-Allen:`,
+            messages: [{role: 'user', content: message.content }],
+
+            // prompt: `Allen is a nice guy.\n\
+// Allen: Hello people of Earth, how do you do?\n\
+// ${message.author.username}: ${message.content}
+// Allen:`,
             //tempurature refers to how random the ai will be
             // tempurature: 0.9,
             max_tokens: 30,
             // stop: ["Allen:", "BigDon(g)"],
        }
 
-       
-        const AllenResponse = await openai.completions.create(params)
+       // original line
+        const AllenResponse = await openai.chat.completions.create(params)
        
 
-       console.log(completion.choices[0].text)
-        message.reply(`${AllenResponse.choices[0].text}`);
+        console.log(message.content)
+       console.log(AllenResponse.choices[0].message.content)
+        message.reply(`${AllenResponse.choices[0].message.content}`);
         return;
     } catch(err){
         console.log(err)
