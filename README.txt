@@ -2,7 +2,7 @@ Hello this is my own creation of a Discord bot using OpenAI.
 
 The code is written in javascript
 
-My specific one that I created is from a character from one of my favorite tv show Invinsble on amazon prime.
+My specific one that I created is from a character from the tv show Invinsble on amazon prime.
 
 His name is Allen the Alien
 

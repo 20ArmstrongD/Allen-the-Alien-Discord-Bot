@@ -28,10 +28,7 @@ client.on('messageCreate', async function(message){
             model: "gpt-3.5-turbo", 
             messages: [{role: 'user', content: message.content }],
 
-            // prompt: `Allen is a nice guy.\n\
-// Allen: Hello people of Earth, how do you do?\n\
-// ${message.author.username}: ${message.content}
-// Allen:`,
+            
             //tempurature refers to how random the ai will be
             // tempurature: 0.9,
             max_tokens: 30,
