@@ -30,7 +30,7 @@ Allen: Hello people of Earth, how do you do?\n\
 ${message.author.username}: ${message.content}
 Allen:`,
             //tempurature refers to how random the ai will be
-            tempurature: 0.9,
+            // tempurature: 0.9,
             max_tokens: 100,
             stop: ["Allen:", "BigDon(g)"],
        })
