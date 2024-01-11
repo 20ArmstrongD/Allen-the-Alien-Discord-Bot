@@ -1,3 +1,7 @@
+// Code down below
+        
+
+
 // create a discord bot using the openaai api that interacts on the discord server
 import 'dotenv/config'
 
