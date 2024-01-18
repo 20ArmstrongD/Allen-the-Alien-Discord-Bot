@@ -29,7 +29,7 @@ client.on('messageCreate', async function(message){
         if(message.author.bot) return;
 
         const params = {
-            model: "gpt-3.5-turbo", 
+            model: "gpt-3.5-turbo", //this is the version of the openai i'm using 
             messages: [{role: 'user', content: message.content }],
 
             
