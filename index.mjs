@@ -34,7 +34,7 @@ client.on('messageCreate', async function(message){
 
             
             //tempurature refers to how random the ai will be
-            // tempurature: 0.9,
+            // tempurature: 0.9, for my use it was not needed
             max_tokens: 30,
             stop: ["Allen:", "BigDon(g)"],
        }
