@@ -1,57 +1,50 @@
 // Code down below
-        
 
+// create a discord bot using the OpenAI API that interacts on the discord server
+import 'dotenv/config';
 
-// create a discord bot using the openaai api that interacts on the discord server
-import 'dotenv/config'
-
-
-// prepare to connect to the discord api
+// prepare to connect to the discord API
 import { Client, GatewayIntentBits } from 'discord.js';
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent 
-]})
+]});
 
-// prepare connection to openai api
+// prepare connection to OpenAI API
 import OpenAI from 'openai';
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_KEY,
     maxRetries: 0,
     organization: process.env.OPENAI_ORG
-})
+});
 
 // check for when a message on discord is sent
 client.on('messageCreate', async function(message){
     try {
         // don't respond to yourself or other bots
-        if(message.author.bot) return;
+        if (message.author.bot) return;
 
         const params = {
-            model: "gpt-3.5-turbo", //this is the version of the openai i'm using 
-            messages: [{role: 'user', content: message.content }],
-
-            
-            //tempurature refers to how random the ai will be
-            // tempurature: 0.9, for my use it was not needed
+            model: "gpt-3.5-turbo", // this is the version of OpenAI I'm using 
+            messages: [{ role: 'user', content: message.content }],
             max_tokens: 30,
+            temperature: 0.7, // optional: controls randomness
             stop: ["Allen:", "BigDon(g)"],
-       }
+        };
 
-       // original line
-        const AllenResponse = await openai.chat.completions.create(params)
-       
-
-        console.log(message.content)
-       console.log(AllenResponse.choices[0].message.content)
-        message.reply(`${AllenResponse.choices[0].message.content}`);
+        // updated line to call the chat completions API
+        const response = await openai.chat.completions.create(params);
+        
+        console.log(message.content);
+        console.log(response.choices[0].message.content);
+        message.reply(`${response.choices[0].message.content}`);
         return;
-    } catch(err){
-        console.log(err)
+    } catch (err) {
+        console.log(err);
     }
 });
 
-// log the bot into discord
+// log the bot into Discord
 client.login(process.env.DISCORD_TOKEN);
-console.log("Allen has made it to Earth")
+console.log("Allen has made it to Earth");
